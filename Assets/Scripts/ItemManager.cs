@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public string[] itemNames;
+    
 
+    [SerializeField]
+    private ComboManager comboManager;
     private int comboItemOneIndex, comboItemTwoIndex;
-
     private bool itemOneSet = false;
     private bool itemTwoSet = false;
 
@@ -15,9 +16,8 @@ public class ItemManager : MonoBehaviour
     {
         if(itemTwoSet) 
         {
-            Combine();
+            comboManager.Combine();
             Cancel();
-            
         }  
     }
 
@@ -53,17 +53,4 @@ public class ItemManager : MonoBehaviour
         itemTwoSet = false;
     }
 
-    private void Combine()
-    {
-        //make comparrissons and see if combo exists
-
-        if(comboItemOneIndex == 1 && comboItemTwoIndex == 3)
-        {
-            Debug.Log("And he gives a darn :D");
-        }
-        else
-        {
-            Debug.Log("He don't give a darn :C");
-        }
-    }
 }

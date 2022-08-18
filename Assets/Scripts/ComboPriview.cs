@@ -7,30 +7,30 @@ using TMPro;
 
 public class ComboPriview : MonoBehaviour
 {
-    public Sprite[] itemImages;
 
-
-    public Image itemImageOne;
-    public Image itemImageTwo;
-
-
-
-    public TextMeshProUGUI itemTextOne;
-
-    public TextMeshProUGUI itemTextTwo;
-
-    public ItemManager itemManager;
+    [SerializeField]
+    private DataBox dataBox;
+    [SerializeField]
+    private Image itemImageOne;
+    [SerializeField]
+    private Image itemImageTwo;
+    [SerializeField]
+    private TextMeshProUGUI itemTextOne;
+    [SerializeField]
+    private TextMeshProUGUI itemTextTwo;
+    [SerializeField]
+    private ItemManager itemManager;
 
     void Update()
     {
 
-        itemImageOne.sprite = itemImages[itemManager.GetItemOneIndex()];
+        itemImageOne.sprite = dataBox.itemImages[itemManager.GetItemOneIndex()];
 
-        itemImageTwo.sprite = itemImages[itemManager.GetItemTwoIndex()];
+        itemImageTwo.sprite = dataBox.itemImages[itemManager.GetItemTwoIndex()];
 
-        itemTextOne.text = itemManager.itemNames[itemManager.GetItemOneIndex()];
+        itemTextOne.text = dataBox.itemNames[itemManager.GetItemOneIndex()];
 
-        itemTextTwo.text = itemManager.itemNames[itemManager.GetItemTwoIndex()];
+        itemTextTwo.text = dataBox.itemNames[itemManager.GetItemTwoIndex()];
 
         itemManager.GetItemOneIndex();
     }
